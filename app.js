@@ -1,6 +1,14 @@
 const https = require('https');
 // Storing API key in api.json
 const api = require('./api.json');
+// Grab all the arguments inputted in console
+const args = process.argv;
+let stockName = args[2];
+let price = 0;
+
+const displayStock = () => {
+  console.log(`The current stock price of ${stockName} is $${parseFloat(price).toFixed(2)}`);
+};
 
 // Run a function for custom stock search
 const stockPrice = (stock) => {
@@ -23,8 +31,10 @@ const stockPrice = (stock) => {
         arr.push(arrayOfSeries[element]);
       }
       // Log the final data to the console
-      console.log(arr[arr.length - 1]);
-
+      price += arr[arr.length - 1]['4. close'];
+      displayStock();
     });
   });
 };
+
+stockPrice(args[2]); // The third argument contains the required one
