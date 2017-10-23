@@ -7,7 +7,7 @@ let stockName = args[2];
 let price = 0;
 
 const displayStock = () => {
-  console.log(`The current stock price of ${stockName} is $${parseFloat(price).toFixed(2)}`);
+  console.log(`The current stock price of ${stockName} is ${parseFloat(price).toFixed(2)}`);
 };
 
 // Run a function for custom stock search
